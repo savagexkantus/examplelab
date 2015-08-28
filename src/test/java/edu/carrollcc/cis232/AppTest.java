@@ -44,6 +44,7 @@ public class AppTest
     public void testNameEntryDisplayed()
     {
         systemInMock.provideText("bob");
+    	App.main(null);
         assertThat(systemOutRule.getLog(), matchesPattern("hello\\s+bob!?"));
     }
 }
