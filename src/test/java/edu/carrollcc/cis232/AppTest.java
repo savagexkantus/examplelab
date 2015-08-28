@@ -1,5 +1,13 @@
 package edu.carrollcc.cis232;
 
+import org.junit.Rule;
+import org.junit.contrib.java.lang.system.SystemOutRule;
+import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
+import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
+
+import static com.jcabi.matchers.RegexMatchers.matchesPattern;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -28,11 +36,14 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
+    @Rule
+	public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
+    @Rule
+    public final TextFromStandardInputStream systemInMock= emptyStandardInputStream();
+    
+    public void testNameEntryDisplayed()
     {
-        assertTrue( true );
+        systemInMock.provideText("bob");
+        assertThat(systemOutRule.getLog(), matchesPattern("hello\\s+bob!?"));
     }
 }
