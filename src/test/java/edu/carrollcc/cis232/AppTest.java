@@ -1,16 +1,13 @@
 package edu.carrollcc.cis232;
 
+import static com.jcabi.matchers.RegexMatchers.matchesPattern;
+import static org.junit.Assert.assertThat;
+import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
-
-import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
-
-
-import static com.jcabi.matchers.RegexMatchers.matchesPattern;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 
 /**
